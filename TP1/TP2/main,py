@@ -1,0 +1,60 @@
+
+def calcular_descuento(precio_original, porcentaje_descuento):
+    return precio_original * (1 - porcentaje_descuento / 100)
+
+def convertir_temperatura(temperatura, unidad_origen, unidad_destino):
+    if unidad_origen == 'C' and unidad_destino == 'F':
+        return (temperatura * 9 / 5) + 32
+    elif unidad_origen == 'F' and unidad_destino == 'C':
+        return (temperatura - 32) * 5 / 9
+    else:
+        return "Error"
+
+def analizar_texto(texto):
+
+    palabras = 1 if texto else 0 
+    for c in texto:
+        if c == " ":  
+            palabras += 1
+
+    caracteres = 0
+    for _ in texto:  
+        caracteres += 1
+
+    return {"palabras": palabras, "caracteres": caracteres}
+
+
+def generar_numeros_primos(hasta):
+
+    def es_primo(n):
+        if n < 2:
+            return False
+        for i in range(2, n):
+            if n % i == 0:
+                return False
+        return True
+
+    primos = []
+    for num in range(2, hasta + 1):
+        if es_primo(num):
+            primos.append(num)
+
+    return primos
+
+def actualizar_inventario(inventario, productos_vendidos):
+    for producto in productos_vendidos:
+        if producto in inventario:
+            inventario[producto] -= 1
+            if inventario[producto] < 0:
+                inventario[producto] = 0
+    return inventario
+
+def convertir_a_lista_caracteres(lista_strings):
+
+    nueva_lista = []
+    for string in lista_strings:
+        lista_caracteres = []
+        for c in string:
+            lista_caracteres.append(c)
+        nueva_lista.append(lista_caracteres)
+    return nueva_lista
